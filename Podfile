@@ -5,9 +5,8 @@ target 'MotorTrendTask' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
- pod 'Moya'
+ pod 'Moya', '~> 10.0'
  pod 'SwiftyJSON'
- pod 'Swinject'
 
   target 'MotorTrendTaskTests' do
     inherit! :search_paths

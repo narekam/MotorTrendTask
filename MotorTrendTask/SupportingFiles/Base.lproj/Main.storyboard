@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bSY-CD-C6P">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorites-->
+        <scene sceneID="zkY-wb-xXP">
+            <objects>
+                <viewController id="yKk-YU-u5g" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C99-UZ-Hik">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="V9I-4p-qFu"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="qzD-OY-XjZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t4j-cn-2xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192" y="-8"/>
+        </scene>
+        <!--Cat List-->
+        <scene sceneID="6Qj-FO-SHU">
+            <objects>
+                <viewController storyboardIdentifier="CatListViewController" id="XUZ-BF-aUa" customClass="CatListView" customModule="MotorTrendTask" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Slg-Zn-6q8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="py6-gy-jso">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatImageTableViewCell" rowHeight="280" id="yub-d7-gab" customClass="CatImageTableViewCell" customModule="MotorTrendTask">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="280"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yub-d7-gab" id="clh-Re-bhy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxO-hQ-uzu">
+                                                    <rect key="frame" x="15" y="11" width="345" height="258"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FDp-NC-rov">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="226"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="226" id="4qE-AR-16E"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4U-s2-mBa">
+                                                            <rect key="frame" x="157.5" y="228" width="30" height="30"/>
+                                                            <color key="backgroundColor" red="0.20000000000000001" green="0.69019607839999997" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="4cL-Np-pCS"/>
+                                                                <constraint firstAttribute="height" constant="30" id="kQa-b2-2hq"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <action selector="likePressed:" destination="yub-d7-gab" eventType="touchUpInside" id="b5G-ZD-vZU"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="FDp-NC-rov" firstAttribute="top" secondItem="yxO-hQ-uzu" secondAttribute="top" id="7z3-Ow-IHe"/>
+                                                        <constraint firstItem="B4U-s2-mBa" firstAttribute="centerX" secondItem="yxO-hQ-uzu" secondAttribute="centerX" id="Ikf-aA-OXD"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FDp-NC-rov" secondAttribute="trailing" id="Y77-w7-aXn"/>
+                                                        <constraint firstItem="FDp-NC-rov" firstAttribute="leading" secondItem="yxO-hQ-uzu" secondAttribute="leading" id="vxj-Z1-E1M"/>
+                                                        <constraint firstItem="B4U-s2-mBa" firstAttribute="top" secondItem="FDp-NC-rov" secondAttribute="bottom" constant="2" id="yuO-cM-prd"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yxO-hQ-uzu" firstAttribute="trailing" secondItem="clh-Re-bhy" secondAttribute="trailingMargin" id="8kR-E5-3i5"/>
+                                                <constraint firstItem="yxO-hQ-uzu" firstAttribute="leading" secondItem="clh-Re-bhy" secondAttribute="leadingMargin" id="CBd-FX-ZPQ"/>
+                                                <constraint firstItem="yxO-hQ-uzu" firstAttribute="bottom" secondItem="clh-Re-bhy" secondAttribute="bottomMargin" id="k9I-Af-nMB"/>
+                                                <constraint firstItem="yxO-hQ-uzu" firstAttribute="top" secondItem="clh-Re-bhy" secondAttribute="topMargin" id="shB-vz-hJD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="catImageView" destination="FDp-NC-rov" id="2au-iW-6t6"/>
+                                            <outlet property="likeButton" destination="B4U-s2-mBa" id="E5k-Sq-T7a"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XUZ-BF-aUa" id="xdz-oB-AFD"/>
+                                    <outlet property="delegate" destination="XUZ-BF-aUa" id="pGw-c2-XL3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="py6-gy-jso" firstAttribute="trailing" secondItem="kY5-PH-72S" secondAttribute="trailing" id="39h-38-doD"/>
+                            <constraint firstItem="kY5-PH-72S" firstAttribute="bottom" secondItem="py6-gy-jso" secondAttribute="bottom" id="Lph-mn-bDi"/>
+                            <constraint firstItem="py6-gy-jso" firstAttribute="top" secondItem="kY5-PH-72S" secondAttribute="top" id="Peb-lT-LgZ"/>
+                            <constraint firstItem="py6-gy-jso" firstAttribute="leading" secondItem="kY5-PH-72S" secondAttribute="leading" id="tSY-nr-vWt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kY5-PH-72S"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cat List" id="pdJ-dH-3fN"/>
+                    <connections>
+                        <outlet property="tableView" destination="py6-gy-jso" id="t0f-9N-DHJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Km-mk-OjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="191.19999999999999" y="-674.21289355322347"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="kyw-oY-I1C">
+            <objects>
+                <tabBarController id="bSY-CD-C6P" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rkv-fq-xpZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="XUZ-BF-aUa" kind="relationship" relationship="viewControllers" id="MFG-qu-w2l"/>
+                        <segue destination="yKk-YU-u5g" kind="relationship" relationship="viewControllers" id="EhC-YF-4HI"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ywN-5i-JMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759" y="-341"/>
+        </scene>
+    </scenes>
+</document>

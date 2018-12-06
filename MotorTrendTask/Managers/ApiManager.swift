@@ -15,7 +15,7 @@ enum CatAPI {
 
 extension CatAPI: TargetType {
     static let apiKey = "4702ec43-ccd0-430e-9d6b-3e168d295139"
-    static let uderId = "ydlz82"
+    static let userId = "ydlz82"
     
     var baseURL: URL {
         guard let url = URL.init(string: "https://api.thecatapi.com/v1") else {

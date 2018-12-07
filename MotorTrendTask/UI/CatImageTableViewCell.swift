@@ -10,8 +10,16 @@ import UIKit
 
 class CatImageTableViewCell: UITableViewCell {
 
-    @IBOutlet var catImageView: UIImageView!
+    @IBOutlet var catImageView: CatImageView!
     @IBOutlet var likeButton: UIButton!
+    
+    public var catImageModel: CatImageModel? {
+        didSet {
+            if let imageUrl = catImageModel?.url {
+                catImageView.loadImageFromUrl(urlString: imageUrl)
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +28,6 @@ class CatImageTableViewCell: UITableViewCell {
     }
     
     @IBAction func likePressed(sender: AnyObject) {
+        print("Like pressed")
     }
-    
 }

@@ -11,6 +11,7 @@ import Moya
 
 enum CatAPI {
     case getImages(limit: Int, page: Int)
+    case getImage(urlString: String)
 }
 
 extension CatAPI: TargetType {
@@ -18,21 +19,30 @@ extension CatAPI: TargetType {
     static let userId = "ydlz82"
     
     var baseURL: URL {
-        guard let url = URL.init(string: "https://api.thecatapi.com/v1") else {
-            fatalError("baseURL could not be configured.")
+        switch self {
+        case .getImages(_, _):
+            return URL.init(string: "https://api.thecatapi.com/v1")!
+        case .getImage(let urlString):
+            return URL.init(string: urlString)!
         }
-        return url
     }
     
     var path: String {
         switch self {
         case .getImages(_, _):
             return "/images/search"
+        case .getImage(_):
+            return ""
         }
     }
     
     var method: Moya.Method {
-        return .get
+        switch self {
+        case .getImages(_, _):
+            return .get
+        case .getImage(_):
+            return .get
+        }
     }
     
     var sampleData: Data {
@@ -43,6 +53,8 @@ extension CatAPI: TargetType {
         switch self {
         case .getImages(let limit, let page):
             return .requestParameters(parameters: ["limit": limit, "page": page], encoding: URLEncoding.queryString)
+        case .getImage(_):
+            return .requestParameters(parameters: [:], encoding: URLEncoding.queryString)
         }
     }
     

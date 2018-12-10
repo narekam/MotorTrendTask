@@ -13,6 +13,8 @@ class CatImageTableViewCell: UITableViewCell {
     @IBOutlet var catImageView: CatImageView!
     @IBOutlet var likeButton: UIButton!
     
+    weak var likeDelegate: LikeDelegate?
+    
     public var catImageModel: CatImageModel? {
         didSet {
             if let imageUrl = catImageModel?.url {
@@ -23,11 +25,11 @@ class CatImageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
     }
     
     @IBAction func likePressed(sender: AnyObject) {
-        print("Like pressed")
+        if let imageId = catImageModel?.id {
+            likeDelegate?.likePressed(methodType: LikeMethodType.addLike, imageId: imageId)
+        }
     }
 }

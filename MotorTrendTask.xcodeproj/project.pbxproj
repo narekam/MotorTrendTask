@@ -17,6 +17,9 @@
 		134848BA21B9DF5B008F9C82 /* CatImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134848B921B9DF5B008F9C82 /* CatImageView.swift */; };
 		13A27A8F21A8C74200C74850 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A27A8E21A8C74200C74850 /* ApiManager.swift */; };
 		13A27A9121A8CD5B00C74850 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A27A9021A8CD5B00C74850 /* NetworkManager.swift */; };
+		13F4957121BEEE4F00B05D8B /* CatFavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F4957021BEEE4F00B05D8B /* CatFavoritesListViewController.swift */; };
+		13F4957421BEF18B00B05D8B /* CatListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F4957321BEF18B00B05D8B /* CatListBaseViewController.swift */; };
+		13F4957621BEF68F00B05D8B /* CatListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F4957521BEF68F00B05D8B /* CatListProtocol.swift */; };
 		C2C460CE30D2B67AA4D7B68B /* Pods_MotorTrendTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C066159633D2BE2D77EF4704 /* Pods_MotorTrendTaskTests.framework */; };
 		E8541EC37B6CF9791712F870 /* Pods_MotorTrendTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04A975B107A2B6F36185E78 /* Pods_MotorTrendTask.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +49,9 @@
 		134848B921B9DF5B008F9C82 /* CatImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageView.swift; sourceTree = "<group>"; };
 		13A27A8E21A8C74200C74850 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		13A27A9021A8CD5B00C74850 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		13F4957021BEEE4F00B05D8B /* CatFavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFavoritesListViewController.swift; sourceTree = "<group>"; };
+		13F4957321BEF18B00B05D8B /* CatListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListBaseViewController.swift; sourceTree = "<group>"; };
+		13F4957521BEF68F00B05D8B /* CatListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatListProtocol.swift; sourceTree = "<group>"; };
 		215059843DA41225DC62557E /* Pods-MotorTrendTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotorTrendTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotorTrendTask/Pods-MotorTrendTask.debug.xcconfig"; sourceTree = "<group>"; };
 		4D6027C888B9EC400106C661 /* Pods-MotorTrendTaskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotorTrendTaskTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotorTrendTaskTests/Pods-MotorTrendTaskTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D910B28CB61CE82A1AFD6C4 /* Pods-MotorTrendTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotorTrendTaskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotorTrendTaskTests/Pods-MotorTrendTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +143,10 @@
 		134848AC21B9C124008F9C82 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				13F4957321BEF18B00B05D8B /* CatListBaseViewController.swift */,
+				13F4957521BEF68F00B05D8B /* CatListProtocol.swift */,
 				134848AD21B9C124008F9C82 /* CatListViewController.swift */,
+				13F4957021BEEE4F00B05D8B /* CatFavoritesListViewController.swift */,
 				134848AE21B9C124008F9C82 /* CatImageTableViewCell.swift */,
 				134848B921B9DF5B008F9C82 /* CatImageView.swift */,
 			);
@@ -338,11 +347,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F4957421BEF18B00B05D8B /* CatListBaseViewController.swift in Sources */,
 				134848BA21B9DF5B008F9C82 /* CatImageView.swift in Sources */,
+				13F4957621BEF68F00B05D8B /* CatListProtocol.swift in Sources */,
 				13A27A9121A8CD5B00C74850 /* NetworkManager.swift in Sources */,
 				13A27A8F21A8C74200C74850 /* ApiManager.swift in Sources */,
 				134848B321B9C124008F9C82 /* CatImageModel.swift in Sources */,
 				1329B1AF21A60B2000172539 /* AppDelegate.swift in Sources */,
+				13F4957121BEEE4F00B05D8B /* CatFavoritesListViewController.swift in Sources */,
 				134848B221B9C124008F9C82 /* CatImageTableViewCell.swift in Sources */,
 				134848B121B9C124008F9C82 /* CatListViewController.swift in Sources */,
 			);

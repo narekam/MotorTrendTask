@@ -13,14 +13,85 @@
         <!--Favorites-->
         <scene sceneID="zkY-wb-xXP">
             <objects>
-                <viewController id="yKk-YU-u5g" sceneMemberID="viewController">
+                <viewController id="yKk-YU-u5g" customClass="CatFavoritesListViewController" customModule="MotorTrendTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C99-UZ-Hik">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="280" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QqT-N2-ofp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CatImageTableViewCell" rowHeight="280" id="2FQ-MM-v2s" customClass="CatImageTableViewCell" customModule="MotorTrendTask">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="280"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2FQ-MM-v2s" id="tys-QH-ttp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFT-x0-SKD">
+                                                    <rect key="frame" x="15" y="11" width="345" height="258"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xy5-UQ-OKh" customClass="CatImageView" customModule="MotorTrendTask" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="226"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="226" id="N40-Dh-dqQ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjy-CH-mnn">
+                                                            <rect key="frame" x="132.5" y="228" width="80" height="30"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="GhE-tQ-flf"/>
+                                                                <constraint firstAttribute="width" constant="80" id="kyF-7l-p4P"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <state key="normal" title="Like!">
+                                                                <color key="titleColor" red="0.84637200339999996" green="0.1042647688" blue="0.71995398119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="likePressedWithSender:" destination="2FQ-MM-v2s" eventType="touchUpInside" id="EMh-8V-adt"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="fjy-CH-mnn" firstAttribute="top" secondItem="Xy5-UQ-OKh" secondAttribute="bottom" constant="2" id="72b-7R-Vl6"/>
+                                                        <constraint firstItem="fjy-CH-mnn" firstAttribute="centerX" secondItem="GFT-x0-SKD" secondAttribute="centerX" id="Ewc-nZ-0HJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Xy5-UQ-OKh" secondAttribute="trailing" id="Vtf-zm-LsA"/>
+                                                        <constraint firstItem="Xy5-UQ-OKh" firstAttribute="top" secondItem="GFT-x0-SKD" secondAttribute="top" id="XXJ-kP-Pg0"/>
+                                                        <constraint firstItem="Xy5-UQ-OKh" firstAttribute="leading" secondItem="GFT-x0-SKD" secondAttribute="leading" id="d04-Lq-tZm"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GFT-x0-SKD" firstAttribute="top" secondItem="tys-QH-ttp" secondAttribute="topMargin" id="2fQ-2I-E6e"/>
+                                                <constraint firstItem="GFT-x0-SKD" firstAttribute="bottom" secondItem="tys-QH-ttp" secondAttribute="bottomMargin" id="G7i-bd-DUV"/>
+                                                <constraint firstItem="GFT-x0-SKD" firstAttribute="leading" secondItem="tys-QH-ttp" secondAttribute="leadingMargin" id="dJq-W6-kk6"/>
+                                                <constraint firstItem="GFT-x0-SKD" firstAttribute="trailing" secondItem="tys-QH-ttp" secondAttribute="trailingMargin" id="e4u-SH-7CF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="catImageView" destination="Xy5-UQ-OKh" id="CIB-0a-ln1"/>
+                                            <outlet property="likeButton" destination="fjy-CH-mnn" id="ndL-uQ-SRz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QqT-N2-ofp" firstAttribute="leading" secondItem="V9I-4p-qFu" secondAttribute="leading" id="NXL-wW-Qjn"/>
+                            <constraint firstItem="QqT-N2-ofp" firstAttribute="top" secondItem="V9I-4p-qFu" secondAttribute="top" id="njS-7n-f8U"/>
+                            <constraint firstItem="QqT-N2-ofp" firstAttribute="trailing" secondItem="V9I-4p-qFu" secondAttribute="trailing" id="wd9-pH-RwD"/>
+                            <constraint firstItem="V9I-4p-qFu" firstAttribute="bottom" secondItem="QqT-N2-ofp" secondAttribute="bottom" id="xxK-Sd-ebd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="V9I-4p-qFu"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" id="qzD-OY-XjZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="QqT-N2-ofp" id="Wxt-Ot-Lcl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4j-cn-2xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,12 +126,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4U-s2-mBa">
-                                                            <rect key="frame" x="157.5" y="228" width="30" height="30"/>
-                                                            <color key="backgroundColor" red="0.20000000000000001" green="0.69019607839999997" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <rect key="frame" x="132.5" y="228" width="80" height="30"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="30" id="4cL-Np-pCS"/>
+                                                                <constraint firstAttribute="width" constant="80" id="4cL-Np-pCS"/>
                                                                 <constraint firstAttribute="height" constant="30" id="kQa-b2-2hq"/>
                                                             </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <state key="normal" title="Like!">
+                                                                <color key="titleColor" red="0.84637200342465757" green="0.10426476883561644" blue="0.71995398116438358" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="likePressedWithSender:" destination="yub-d7-gab" eventType="touchUpInside" id="dW3-ez-3Xa"/>
                                                             </connections>

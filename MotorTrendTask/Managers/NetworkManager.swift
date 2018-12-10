@@ -31,7 +31,6 @@ struct NetworkManager: Networkable {
                         catImages.append(aCatImage)
                     }
                     
-                    print(json)
                     completion(catImages)
                 }
                 
@@ -47,6 +46,44 @@ struct NetworkManager: Networkable {
             case let .success(response):
                 if let image = UIImage.init(data: response.data) {
                     completion(image)
+                }
+                
+            case let .failure(error):
+                print("error: \(error)")
+            }
+        }
+    }
+    
+    func getFavorites(completion: @escaping ([CatImageModel])->()) {
+        provider.request(CatAPI.getFavorites) { result in
+            switch result {
+            case let .success(response):
+                let data = response.data
+                var catImages: [CatImageModel] = []
+                
+                if let json = try? JSON(data: data) {
+                    for catImage in json.arrayValue {
+                        let aCatImage = CatImageModel.init(id: catImage["id"].stringValue, url: catImage["url"].stringValue)
+                        catImages.append(aCatImage)
+                    }
+                    
+                    completion(catImages)
+                }
+                
+            case let .failure(error):
+                print("error: \(error)")
+            }
+        }
+    }
+    
+    func addFavorite(imageId: String, completion: @escaping (Bool)->()) {
+        provider.request(CatAPI.addFavorite(imageId: imageId)) { result in
+            switch result {
+            case let .success(response):
+                if let json = try? JSON(data: response.data) {
+                    if let message = json.dictionaryObject?["message"] as? String {
+                        completion(message == "SUCCESS")
+                    }
                 }
                 
             case let .failure(error):

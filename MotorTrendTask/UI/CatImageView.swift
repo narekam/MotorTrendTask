@@ -8,8 +8,8 @@
 
 import UIKit
 
-let imageCache = NSCache<NSString, UIImage>()
-let networkManager = NetworkManager()
+private let imageCache = NSCache<NSString, UIImage>()
+private let networkManager = NetworkManager()
 
 class CatImageView: UIImageView {
     var imageUrl: String?

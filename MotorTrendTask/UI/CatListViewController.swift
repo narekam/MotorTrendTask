@@ -37,7 +37,7 @@ class CatListViewController: UIViewController {
     }
 }
 
-extension CatListViewController: UITableViewDataSource, UITableViewDelegate, LikeDelegate {
+extension CatListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CatImageTableViewCell
         
@@ -51,8 +51,10 @@ extension CatListViewController: UITableViewDataSource, UITableViewDelegate, Lik
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return catImageList.count
     }
-    
-    func likePressed(methodType: LikeMethodType, imageId: String) {
+}
+
+extension CatListViewController: LikeDelegate {
+    func likePressed(imageId: String) {
         networkManager.addFavorite(imageId: imageId) { (success) in
             if success {
                 print("Added to favorites")

@@ -45,8 +45,8 @@
                                                                 <constraint firstAttribute="height" constant="30" id="GhE-tQ-flf"/>
                                                                 <constraint firstAttribute="width" constant="80" id="kyF-7l-p4P"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                            <state key="normal" title="Like!">
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                            <state key="normal" title="Remove :(">
                                                                 <color key="titleColor" red="0.84637200339999996" green="0.1042647688" blue="0.71995398119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
@@ -77,6 +77,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="yKk-YU-u5g" id="AXG-hF-jSi"/>
+                                    <outlet property="delegate" destination="yKk-YU-u5g" id="vSb-NI-Hy5"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -132,7 +136,7 @@
                                                                 <constraint firstAttribute="width" constant="80" id="4cL-Np-pCS"/>
                                                                 <constraint firstAttribute="height" constant="30" id="kQa-b2-2hq"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <state key="normal" title="Like!">
                                                                 <color key="titleColor" red="0.84637200342465757" green="0.10426476883561644" blue="0.71995398116438358" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>

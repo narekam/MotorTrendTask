@@ -14,6 +14,7 @@ enum CatAPI {
     case getImage(urlString: String)
     case getFavorites
     case addFavorite(imageId: String)
+    case removeFavorite(imageId: String)
 }
 
 extension CatAPI: TargetType {
@@ -22,7 +23,7 @@ extension CatAPI: TargetType {
     
     var baseURL: URL {
         switch self {
-        case .getImages(_, _), .getFavorites, .addFavorite(_):
+        case .getImages(_, _), .getFavorites, .addFavorite(_), .removeFavorite(_):
             return URL.init(string: "https://api.thecatapi.com/v1")!
         case .getImage(let urlString):
             return URL.init(string: urlString)!
@@ -37,6 +38,8 @@ extension CatAPI: TargetType {
             return ""
         case .getFavorites, .addFavorite(_):
             return "/favourites"
+        case .removeFavorite(let imageId):
+            return "/favourites/\(imageId)"
         }
     }
     
@@ -46,6 +49,8 @@ extension CatAPI: TargetType {
             return .get
         case .addFavorite(_):
             return .post
+        case .removeFavorite(_):
+            return .delete
         }
     }
     
@@ -60,7 +65,9 @@ extension CatAPI: TargetType {
         case .getImage(_), .getFavorites:
             return .requestParameters(parameters: [:], encoding: URLEncoding.queryString)
         case .addFavorite(let imageId):
-            return .requestParameters(parameters: ["image_id": "uk0SrrBbQ"], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["image_id": imageId], encoding: JSONEncoding.default)
+        case .removeFavorite(_):
+            return .requestParameters(parameters: [:], encoding: JSONEncoding.default)
         }
     }
     

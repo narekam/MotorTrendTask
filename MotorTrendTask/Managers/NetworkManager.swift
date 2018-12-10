@@ -63,7 +63,7 @@ struct NetworkManager: Networkable {
                 
                 if let json = try? JSON(data: data) {
                     for catImage in json.arrayValue {
-                        let aCatImage = CatImageModel.init(id: catImage["id"].stringValue, url: catImage["url"].stringValue)
+                        let aCatImage = CatImageModel.init(id: catImage["image"]["id"].stringValue, url: catImage["image"]["url"].stringValue)
                         catImages.append(aCatImage)
                     }
                     
@@ -78,6 +78,22 @@ struct NetworkManager: Networkable {
     
     func addFavorite(imageId: String, completion: @escaping (Bool)->()) {
         provider.request(CatAPI.addFavorite(imageId: imageId)) { result in
+            switch result {
+            case let .success(response):
+                if let json = try? JSON(data: response.data) {
+                    if let message = json.dictionaryObject?["message"] as? String {
+                        completion(message == "SUCCESS")
+                    }
+                }
+                
+            case let .failure(error):
+                print("error: \(error)")
+            }
+        }
+    }
+    
+    func removeFavorite(imageId: String, completion: @escaping (Bool)->()) {
+        provider.request(CatAPI.removeFavorite(imageId: imageId)) { result in
             switch result {
             case let .success(response):
                 if let json = try? JSON(data: response.data) {

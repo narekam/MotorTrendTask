@@ -29,7 +29,7 @@ class CatImageTableViewCell: UITableViewCell {
     
     @IBAction func likePressed(sender: AnyObject) {
         if let imageId = catImageModel?.id {
-            likeDelegate?.likePressed(methodType: LikeMethodType.addLike, imageId: imageId)
+            likeDelegate?.likePressed( imageId: imageId)
         }
     }
 }

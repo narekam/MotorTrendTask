@@ -8,12 +8,18 @@
 
 import UIKit
 
+enum CatImageTableViewCellMode {
+    case normalMode
+    case favoritesMode
+}
+
 class CatImageTableViewCell: UITableViewCell {
 
     @IBOutlet var catImageView: CatImageView!
     @IBOutlet var likeButton: UIButton!
     
     weak var likeDelegate: LikeDelegate?
+    var mode: CatImageTableViewCellMode = .normalMode
     
     public var catImageModel: CatImageModel? {
         didSet {
@@ -28,8 +34,15 @@ class CatImageTableViewCell: UITableViewCell {
     }
     
     @IBAction func likePressed(sender: AnyObject) {
-        if let imageId = catImageModel?.id {
-            likeDelegate?.likePressed( imageId: imageId)
+        switch mode {
+        case .favoritesMode:
+            if let favoriteId = catImageModel?.favoriteId {
+                likeDelegate?.likePressed(id: favoriteId)
+            }
+        default:
+            if let imageId = catImageModel?.id {
+                likeDelegate?.likePressed(id: imageId)
+            }
         }
     }
 }

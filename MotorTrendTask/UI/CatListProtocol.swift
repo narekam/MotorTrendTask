@@ -8,11 +8,6 @@
 
 import Foundation
 
-//enum LikeMethodType {
-//    case addLike
-//    case removeLike
-//}
-
 protocol LikeDelegate: AnyObject {
-    func likePressed(imageId: String)
+    func likePressed(id: String)
 }

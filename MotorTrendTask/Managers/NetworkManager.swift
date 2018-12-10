@@ -27,7 +27,7 @@ struct NetworkManager: Networkable {
                 
                 if let json = try? JSON(data: data) {
                     for catImage in json.arrayValue {
-                        let aCatImage = CatImageModel.init(id: catImage["id"].stringValue, url: catImage["url"].stringValue)
+                        let aCatImage = CatImageModel.init(id: catImage["id"].stringValue, url: catImage["url"].stringValue, favoriteId: "")
                         catImages.append(aCatImage)
                     }
                     
@@ -63,7 +63,7 @@ struct NetworkManager: Networkable {
                 
                 if let json = try? JSON(data: data) {
                     for catImage in json.arrayValue {
-                        let aCatImage = CatImageModel.init(id: catImage["image"]["id"].stringValue, url: catImage["image"]["url"].stringValue)
+                        let aCatImage = CatImageModel.init(id: catImage["image"]["id"].stringValue, url: catImage["image"]["url"].stringValue, favoriteId: catImage["id"].stringValue)
                         catImages.append(aCatImage)
                     }
                     
@@ -76,8 +76,8 @@ struct NetworkManager: Networkable {
         }
     }
     
-    func addFavorite(imageId: String, completion: @escaping (Bool)->()) {
-        provider.request(CatAPI.addFavorite(imageId: imageId)) { result in
+    func addFavorite(id: String, completion: @escaping (Bool)->()) {
+        provider.request(CatAPI.addFavorite(id: id)) { result in
             switch result {
             case let .success(response):
                 if let json = try? JSON(data: response.data) {
@@ -92,8 +92,8 @@ struct NetworkManager: Networkable {
         }
     }
     
-    func removeFavorite(imageId: String, completion: @escaping (Bool)->()) {
-        provider.request(CatAPI.removeFavorite(imageId: imageId)) { result in
+    func removeFavorite(id: String, completion: @escaping (Bool)->()) {
+        provider.request(CatAPI.removeFavorite(id: id)) { result in
             switch result {
             case let .success(response):
                 if let json = try? JSON(data: response.data) {

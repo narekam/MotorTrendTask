@@ -44,6 +44,7 @@ extension CatListViewController: UITableViewDataSource, UITableViewDelegate {
         let catImage = catImageList[indexPath.row]
         cell.catImageModel = catImage
         cell.likeDelegate = self
+        cell.mode = .normalMode
         
         return cell
     }
@@ -54,8 +55,8 @@ extension CatListViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension CatListViewController: LikeDelegate {
-    func likePressed(imageId: String) {
-        networkManager.addFavorite(imageId: imageId) { (success) in
+    func likePressed(id: String) {
+        networkManager.addFavorite(id: id) { (success) in
             if success {
                 print("Added to favorites")
             } else {

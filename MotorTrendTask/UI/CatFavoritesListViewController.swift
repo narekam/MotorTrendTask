@@ -34,10 +34,6 @@ class CatFavoritesListViewController: UIViewController {
         networkManager.getFavorites() { (resultArray) in
             self.catImageList = resultArray
             self.tableView.reloadData()
-            
-            for model in self.catImageList {
-                print("imageId = \(model.id)")
-            }
         }
     }
 }
@@ -49,6 +45,7 @@ extension CatFavoritesListViewController: UITableViewDataSource, UITableViewDele
         let catImage = catImageList[indexPath.row]
         cell.catImageModel = catImage
         cell.likeDelegate = self
+        cell.mode = .favoritesMode
         
         return cell
     }
@@ -59,8 +56,8 @@ extension CatFavoritesListViewController: UITableViewDataSource, UITableViewDele
 }
 
 extension CatFavoritesListViewController: LikeDelegate {
-    func likePressed(imageId: String) {
-        networkManager.removeFavorite(imageId: imageId) { (success) in
+    func likePressed(id: String) {
+        networkManager.removeFavorite(id: id) { (success) in
             if success {
                 print("Removed from favorites")
             } else {

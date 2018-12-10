@@ -11,4 +11,5 @@ import Foundation
 struct CatImageModel: Codable {
     var id: String
     var url: String
+    var favoriteId: String
 }

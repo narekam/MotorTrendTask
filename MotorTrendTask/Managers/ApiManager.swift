@@ -13,8 +13,8 @@ enum CatAPI {
     case getImages(limit: Int, page: Int)
     case getImage(urlString: String)
     case getFavorites
-    case addFavorite(imageId: String)
-    case removeFavorite(imageId: String)
+    case addFavorite(id: String)
+    case removeFavorite(id: String)
 }
 
 extension CatAPI: TargetType {
@@ -38,8 +38,8 @@ extension CatAPI: TargetType {
             return ""
         case .getFavorites, .addFavorite(_):
             return "/favourites"
-        case .removeFavorite(let imageId):
-            return "/favourites/\(imageId)"
+        case .removeFavorite(let id):
+            return "/favourites/\(id)"
         }
     }
     
